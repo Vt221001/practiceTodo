@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import router from "./routes/Todo.routes.js";
 
 dotenv.config({
   path: "./.env",
@@ -17,6 +18,9 @@ app.use(
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+
+app.use("/api",router);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Todo list API");
